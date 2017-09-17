@@ -3,7 +3,9 @@ from selenium.webdriver.common.keys import Keys
 import time
 import random
 
-driver = webdriver.Firefox()
+# Launches chrome in a automated mode
+# need to have chrome preinstalled in the system
+driver = webdriver.Chrome(executable_path='./chromedriver')
 thoughts = []
 
 
@@ -42,13 +44,13 @@ def main():
     open_thought()
     whatsapp_login()
     wait(10)
-    for i in range(1, 100):
+    for i in range(1, 2000):
         send_message(random_thought())
-        wait(1)
         print('Message sent: ' + str(i))
     wait(2)
     print('Message sent successfully')
     driver.quit()
+
 
 if __name__ == '__main__':
     main()
